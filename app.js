@@ -19,28 +19,10 @@ app.use((req, res) => {
 });
 
 app.use((err, req, res, next) => {
-  res.status(500).json({ message: err.message });
+  const { status = 500, message = "Server E" } = err;
+  res.status(status).json({ message });
+
+  // res.status(500).json({ message: err.message });
 });
 
 module.exports = app;
-
-// app.use((req, res, next) => {
-//     console.log("Вітаю в GoIT")
-//     next()
-// })
-
-// app.get("/", (req, res) => {
-//   res.send("Hello");
-// });
-
-// app.get("/books", (req, res) => {
-//   res.json(books);
-// });
-
-// app.use((req, res) => {
-//   res.status(404).json({
-//     message: "Not found",
-//   });
-// });
-
-// app.listen(3001);
