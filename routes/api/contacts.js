@@ -12,11 +12,11 @@ const router = express.Router();
 
 router.get("/", authenticate, ctrlWrapper(ctrl.listContacts));
 
-router.get("/:id", authenticate, ctrlWrapper(ctrl.getContactById));
-
 router.get("/favorite", authenticate, ctrlWrapper(ctrl.favoriteContacts));
 
 router.get("/paginate", authenticate, ctrlWrapper(ctrl.paginateContacts));
+
+router.get("/:id", authenticate, ctrlWrapper(ctrl.getContactById));
 
 router.post(
   "/",
