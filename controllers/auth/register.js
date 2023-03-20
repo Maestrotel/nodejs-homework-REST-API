@@ -1,10 +1,12 @@
 const bcrypt = require("bcryptjs");
 const gravatar = require("gravatar");
-import { nanoid } from "nanoid";
+const { nanoid } = require("nanoid");
 
 const { User } = require("../../models/user");
 
 const { RequestError, sendEmail } = require("../../helpers");
+
+const { BASE_URL } = process.env;
 
 const register = async (req, res) => {
   const { email, password } = req.body;
